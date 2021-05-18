@@ -46,6 +46,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         PlayerMoveKeyboard();
+        if (!isGrounded)
+            anim.SetBool("isJumping", true);
+        else
+            anim.SetBool("isJumping", false);
         AnimatePlayer();
     }
 
@@ -86,6 +90,7 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
             myBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse) ;
+            
         }
     }
 
